@@ -1,6 +1,6 @@
 function App() {
   return (
-    <div className="container">
+    <div className="container pt-4">
       <h1>GitHub commits</h1>
       <h2>
         Application shows git commit history for the current project through
