@@ -19,7 +19,7 @@ function App() {
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/about" component={About} />
-              <Route path="/commit/:ref" component={CommitInfo} />
+              <Route path="/commit/:sha" component={CommitInfo} />
             </Switch>
           </div>
         </BrowserRouter>

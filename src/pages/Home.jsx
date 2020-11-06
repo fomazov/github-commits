@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, Fragment } from 'react'
-import { Search } from '../components/Search'
 import { Commit } from '../components/Commit'
 
 import { GithubContext } from '../context/github/githubContext'
@@ -14,8 +13,6 @@ export const Home = () => {
 
   return (
     <Fragment>
-      <Search />
-
       {loading ? (
         <p className="text-center">Loading...</p>
       ) : (

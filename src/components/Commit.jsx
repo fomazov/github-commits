@@ -7,7 +7,7 @@ export const Commit = ({ commit }) => (
       <h5 className="card-title">{commit.commit.message}</h5>
       <pre>{commit.sha}</pre>
       <Link to={'/commit/' + commit.sha} className="btn btn-primary">
-        Open
+        More...
       </Link>
     </div>
   </div>
