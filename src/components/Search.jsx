@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react'
-// import { AlertContext } from '../context/alert/alertContext'
+import { AlertContext } from '../context/alert/alertContext'
 
 export const Search = () => {
   const [value, setValue] = useState('')
-  // const alert = useContext(AlertContext)
+  const { show } = useContext(AlertContext)
 
+  // Testing alert functionality
   const onSubmit = (event) => {
-    if (event.key !== 'Enter') {
-      return
+    if (event.key === 'Enter') {
+      show(value)
     }
   }
 
