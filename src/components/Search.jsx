@@ -3,12 +3,17 @@ import { AlertContext } from '../context/alert/alertContext'
 
 export const Search = () => {
   const [value, setValue] = useState('')
-  const { show } = useContext(AlertContext)
+  const alert = useContext(AlertContext)
 
-  // Testing alert functionality
   const onSubmit = (event) => {
-    if (event.key === 'Enter') {
-      show(value)
+    if (event.key !== 'Enter') {
+      return
+    }
+    if (value.trim()) {
+      alert.hide()
+      console.log('Filter with: ', value)
+    } else {
+      alert.show('Enter part of commit description!')
     }
   }
 
