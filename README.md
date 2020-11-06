@@ -8,17 +8,15 @@ https://fomazov.github.io/github-commits/
 
 ## Requirements
 
-https://fomazov.github.io/about
+https://fomazov.github.io/github-commits/about
 
 ## How to run?
 
 ### Clone repository
 
-To clone the repository use the following commands:
+To clone the repository use the following command:
 
 ```sh
-git clone git@github.com:fomazov/github-commits.git
-or
 git clone https://github.com/fomazov/github-commits.git
 ```
 
@@ -27,6 +25,8 @@ git clone https://github.com/fomazov/github-commits.git
 ```sh
 cd github-commits
 npm install
+or
+yarn install
 ```
 
 ### Start application
