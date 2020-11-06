@@ -3,35 +3,35 @@ import { GithubContext } from '../context/github/githubContext'
 import { Link } from 'react-router-dom'
 
 export const CommitInfo = ({ match }) => {
-  console.log(useContext(GithubContext))
-  const { getCommit, loading, info } = useContext(GithubContext)
+  const { getCommit, loading } = useContext(GithubContext)
   const urlSha = match.params.sha
 
-  useEffect(() => {
-    getCommit(urlSha)
+  useEffect(async () => {
+    await getCommit(urlSha)
     // eslint-disable-next-line
   }, [])
 
-  if (loading) {
-    return <p className="text-center">Loading...</p>
-  }
+  const { info } = useContext(GithubContext)
   const {
     sha,
     html_url,
     author: { avatar_url },
-    commit,
+    commit: {
+      message,
+      author: { name },
+    },
   } = info
-  const {
-    author: { name, date },
-    message,
-  } = commit
+
+  if (loading) {
+    return <p className="text-center">Loading...</p>
+  }
   return (
     <Fragment>
       <Link to="/" className="btn btn-link">
         Back to list
       </Link>
       <div class="card" style={{ width: '18rem' }}>
-        <img class="card-img-top" src={avatar_url} alt={name} />
+        <img class="card-img-top" src={avatar_url} alt="" />
         <div class="card-body">
           <h5 class="card-title">{name}</h5>
           <p class="card-text">{message}</p>
@@ -41,7 +41,7 @@ export const CommitInfo = ({ match }) => {
         </ul>
         <div class="card-body">
           <a href={html_url} class="card-link">
-            Sha
+            Link
           </a>
         </div>
       </div>
